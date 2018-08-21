@@ -46,5 +46,6 @@ for(n in 2:4){
 }
 #IMPRIMIR
 datos <- cbind(columna1, columna2, columna3, columna4)
+datos <- as.data.frame(datos)
 
 boxplot(datos$columna4[which(datos$columna1 == 3)] ~datos$columna2[which(datos$columna1 == 3)])
