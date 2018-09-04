@@ -70,13 +70,18 @@ boxplot(datos$grieta ~datos$matricula, xlab="zonas", ylab="largo de la grieta",c
 graphics.off()
 
 for (i in c(100, 150, 200, 250)) {
-  png(paste("largogrieta", i, "semillas.png"))
-  boxplot(datos$grieta[which(datos$matricula == i)] ~datos$semillas[which(datos$matricula == i)],
-          ylab = "largo de la grieta", xlab = "semillas", col = colores,main=paste("Zona",i))
+  par(mfrow = c(1, 2))
+  png("raro.png")
+  boxplot(if (range(datos$manhatan[which(datos$matricula == i)])[2] < range(datos$grieta[which(datos$matricula == i)])[2]) {
+    lmts <- range(datos$grieta[which(datos$matricula == i)])
+  } else {
+    lmts <- range(datos$Manhatan[which(datos$Zona == i)])
+  })
   graphics.off()
-  
-  png(paste("manhatan", i, "semillas.png"))
-  boxplot(datos$manhatan[which(datos$matricula == i)] ~datos$semillas[which(datos$matricula == i)],
-          ylab = "manhatan", xlab = "semillas", col = colores,main=paste("Zona",i))
+  par(mfrow = c(1, 2))
+  boxplot(datos$grieta[which(datos$matricula == i)] ~datos$semillas[which(datos$matricula == i)],
+          ylab = "Grieta", xlab = "Semillas", col=colores, ylim = lmts)
+  boxplot(datos$Manhatan[which(datos$matricula == i)] ~datos$semillas[which(datos$matricula == i)],
+          ylab = "Grieta", xlab = "Semillas", col=colores, ylim = lmts)
   graphics.off()
 }
