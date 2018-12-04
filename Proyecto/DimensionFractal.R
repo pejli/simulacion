@@ -25,7 +25,7 @@ Elekaunomax <- function (x, kmax) {
 }
 
 Eleka <- function(k) {
-  n <- length(x)
+  n <- length(y)
   suma <- rep(0, k)
   longituddecurvamk <- double()
   for (i in 1:k) {
@@ -33,7 +33,7 @@ Eleka <- function(k) {
     
     for (j in vec) {
       anterior <- suma[i]
-      suma[i] <- anterior + abs(x[j] - x[j - k])
+      suma[i] <- anterior + abs(y[j] - y[j - k])
     }
     
     facdenorm <- ((n-1)/(floor((n-i)/k)*k))/k
@@ -57,21 +57,4 @@ Pendienteminimoscuadrados <- function(a, b) {
     
     return(pendienteminimoscuadrados)
   }
-}
-
-library(parallel)
-cl <- makeCluster(detectCores() - 1)
-
-library(readr)
-datos <- c(read_csv("C:/Users/Liliana Saus/Desktop/ProyectoElisa/A.txt", col_names = FALSE), 
-       read_csv("C:/Users/Liliana Saus/Desktop/ProyectoElisa/B.txt", col_names = FALSE),
-       read_csv("C:/Users/Liliana Saus/Desktop/ProyectoElisa/C.txt", col_names = FALSE),
-       read_csv("C:/Users/Liliana Saus/Desktop/ProyectoElisa/D.txt", col_names = FALSE),
-       read_csv("C:/Users/Liliana Saus/Desktop/ProyectoElisa/E.txt", col_names = FALSE),
-       read_csv("C:/Users/Liliana Saus/Desktop/ProyectoElisa/F.txt", col_names = FALSE))
-
-for (i in 1:6) {
-  x <- as.double(unlist(datos[i]))
-  clusterExport(cl, "x")
-  print(DF(x))
 }

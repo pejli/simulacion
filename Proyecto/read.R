@@ -1,0 +1,21 @@
+control <- list(as.double(read.table("Datos/Control/1", quote="\"")),
+           as.double(read.table("Datos/Control/2", quote="\"")),
+           as.double(read.table("Datos/Control/3", quote="\"")),
+           as.double(read.table("Datos/Control/4", quote="\"")),
+           as.double(read.table("Datos/Control/5", quote="\"")),
+           as.double(read.table("Datos/Control/6", quote="\"")),
+           as.double(read.table("Datos/Control/7", quote="\"")),
+           as.double(read.table("Datos/Control/8", quote="\"")),
+           as.double(read.table("Datos/Control/9", quote="\"")),
+           as.double(read.table("Datos/Control/10", quote="\"")))
+
+pacientes <- list(as.double(read.table("Datos/Pacientes/1", quote="\"")),
+                as.double(read.table("Datos/Pacientes/2", quote="\"")),
+                as.double(read.table("Datos/Pacientes/3", quote="\"")),
+                as.double(read.table("Datos/Pacientes/4", quote="\"")),
+                as.double(read.table("Datos/Pacientes/5", quote="\"")),
+                as.double(read.table("Datos/Pacientes/6", quote="\"")),
+                as.double(read.table("Datos/Pacientes/7", quote="\"")),
+                as.double(read.table("Datos/Pacientes/8", quote="\"")),
+                as.double(read.table("Datos/Pacientes/9", quote="\"")),
+                as.double(read.table("Datos/Pacientes/10", quote="\"")))
